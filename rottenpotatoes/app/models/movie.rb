@@ -12,7 +12,7 @@ class Movie < ActiveRecord::Base
     # If no director is found from a given movie, 
     # just return an empty list of movies. 
     # Otherwise, return a list of all movies
-    if movie.director == nil
+    if movie.director.nil? or movie.director.empty?
         return []
     else 
         # Grab all of a director's movies using 'where' on the db

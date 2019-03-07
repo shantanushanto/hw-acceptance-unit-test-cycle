@@ -69,9 +69,9 @@ class MoviesController < ApplicationController
 
     # If the movie list is empty, just flash a message
     # and return
-    if @movie_list.empty?
-      flash[:notice] = "No director found for  #{@movie.title}"
-      redirect_to movies_path()
+    if @movie_list == []
+      flash[:notice] = "'#{@movie.title}' has no director info"
+      redirect_to movies_path
     end
   end 
 
