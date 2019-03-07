@@ -1,0 +1,30 @@
+%h1 Displaying similar movies for #{@movie.title}
+
+-# This is pretty much just a copy of the index table.
+%table#similar_movies
+    %thead
+        %tr
+            %th Movie Title
+            %th Rating
+            %th Release Date
+            %th Director
+            %th More Info
+    %tbody
+    - @movie_list.each do |movie|
+        %tr
+            %td= movie.title
+            %td= movie.rating
+            %td= movie.release_date
+            %td= movie.director
+            %td= link_to "More about #{movie.title}", movie_path(movie)
+
+-# This is just to mess around with formatting and make it 
+-# easier for users to navigate the website
+%p
+-# Add a link to the previous movie details
+= link_to 'Back to previous movie details', movie_path(@movie)
+
+%p
+-# Add a back to movie list which takes the user page to 
+-# home page displaying all movies.
+= link_to 'Back to movie list', movies_path
